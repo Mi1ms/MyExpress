@@ -1,19 +1,31 @@
 const http = require('http');
 
- class Express {
-    
-    constructor () {
+class Express {
+
+    constructor() {
+        this.routage = []
         console.log('constructor')
-        this.server = http.createServer((request, response) => {
-            console.log('server create');
-            response.write('Listen port')
-            response.end()
-        });
+        this.server = http.createServer();
 
     }
 
-    get(path, callback) {
+    get(pathurl, callback) {
 
+        this.server.on('request', (request, response) => {
+            console.log(request.url)
+            response.writeHead(200, { 'Content-Type': 'text/html' });
+
+            const find = this.routage.find(element => {
+                return element.path === pathurl;
+            });
+            
+            if (request.url === pathurl && request.method === 'GET') {
+                callback(request, response);
+                response.end()
+            }
+
+        })
+    
     }
 
     post(path, callback) {
@@ -23,17 +35,17 @@ const http = require('http');
     listen(port) {
 
         if (typeof port == 'number') {
-            console.log(port)
+            this.port = port;
             this.server.listen(port);
         } else {
             console.log(`Excepted nuber port like 4200, received ${port}\n`)
         }
-        
+
     }
 
-    
+
 }
-function express(){
+function express() {
     return new Express()
 }
 

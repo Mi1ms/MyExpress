@@ -1,0 +1,24 @@
+{
+  "name": "myexpress",
+  "version": "1.0.0",
+  "description": "Project binome",
+  "main": "main.js",
+  "dependencies": {
+    "nodemon": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "npx nodemon main.js",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mi1ms/MyExpress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mi1ms/MyExpress/issues"
+  },
+  "homepage": "https://github.com/Mi1ms/MyExpress#readme"
+}
