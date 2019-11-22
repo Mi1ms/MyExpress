@@ -1,0 +1,25 @@
+{
+  "name": "myexpress",
+  "version": "1.0.0",
+  "description": "Coding my express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "scripts": {
+    "start": "npx nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mi1ms/MyExpress.git"
+  },
+  "author": "yvan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mi1ms/MyExpress/issues"
+  },
+  "homepage": "https://github.com/Mi1ms/MyExpress#readme",
+  "dependencies": {
+    "nodemon": "^2.0.1"
+  }
+}

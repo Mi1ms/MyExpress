@@ -4,12 +4,13 @@ const http = require('http');
     
     constructor () {
         console.log('constructor')
-        this.server = http.createServer((request, response) => {
+        this.server = http.createServer(
+        /*(request, response) => {
             console.log('server create');
+            console.log(request);
             response.write('Listen port')
             response.end()
-        });
-
+        }*/);
     }
 
     get(path, callback) {
@@ -17,6 +18,49 @@ const http = require('http');
     }
 
     post(path, callback) {
+
+    	this.server.on('request', (req, res) =>{
+    		console.log(req)
+    	})
+
+    	const data = JSON.stringify({
+    		todo : 'données a envoyer',
+    		name : 'envoyer',
+    		data : 'données'
+    	})
+
+    	const opt = {
+    	  hostname: 'localhost',
+		  port: 2222,
+		  path: this.path,
+		  method: 'POST',
+
+		  headers: {
+
+		    'Content-Type': 'application/json',
+		    'Content-Length': data.length
+ 		 	}
+    	}
+
+    	const req = http.request(opt, (res)=>{
+    		console.log(`statusCode: ${res.statusCode}`)
+
+
+	    		res.on('data', (d)=>{
+	    		process.stdout.write(d)
+	    	})
+
+    	})
+
+
+		req.on('error', error => {
+		  console.error(`liste d'erreur" ${error}`)
+		})
+
+		req.write(data)
+		req.end()
+
+		return callback(this.serve)
 
     }
 
