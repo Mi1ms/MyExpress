@@ -1,17 +1,19 @@
 const http = require('http');
 
-const myExpress = class Express {
+class Express {
     
     constructor () {
         console.log('constructor')
         this.server = http.createServer((request, response) => {
             console.log('server create');
             response.write('Listen port')
+            response.end();
         });
         this.listen();
     }
 
     get(path, callback) {
+
 
     }
 
@@ -19,7 +21,7 @@ const myExpress = class Express {
 
     }
 
-    listen(port = 4545) {
+    listen(port) {
         console.log(port)
         // this.server.listen(port)
         if (typeof port == 'number') {
@@ -31,6 +33,8 @@ const myExpress = class Express {
     
 }
 
-module.exports = {
-    myExpress,
+function express (){
+     return new Express;
 }
+
+module.exports = express
