@@ -1,19 +1,18 @@
 const http = require('http');
 
-class Express {
+ class Express {
     
     constructor () {
         console.log('constructor')
         this.server = http.createServer((request, response) => {
             console.log('server create');
             response.write('Listen port')
-            response.end();
+            response.end()
         });
-        this.listen();
+
     }
 
     get(path, callback) {
-
 
     }
 
@@ -22,19 +21,20 @@ class Express {
     }
 
     listen(port) {
-        console.log(port)
-        // this.server.listen(port)
+
         if (typeof port == 'number') {
+            console.log(port)
             this.server.listen(port);
+        } else {
+            console.log(`Excepted nuber port like 4200, received ${port}\n`)
         }
         
     }
 
     
 }
-
-function express (){
-     return new Express;
+function express(){
+    return new Express()
 }
 
 module.exports = express
