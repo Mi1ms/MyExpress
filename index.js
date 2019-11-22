@@ -1,3 +1,3 @@
-const express = require('./my-express')
-const app = express()
+const {myExpress} = require('./my-express')
+const app = new myExpress()
 
