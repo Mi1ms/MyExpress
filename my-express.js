@@ -12,24 +12,33 @@ class Express {
     get(pathurl, callback) {
 
         this.server.on('request', (request, response) => {
-            console.log(request.url)
             response.writeHead(200, { 'Content-Type': 'text/html' });
 
             const find = this.routage.find(element => {
                 return element.path === pathurl;
             });
-            
+
             if (request.url === pathurl && request.method === 'GET') {
                 callback(request, response);
                 response.end()
             }
 
         })
-    
+
     }
 
     post(path, callback) {
 
+    }
+
+    put(path, callback) {
+      this.server.on('request', (request, response) => {
+        if (path == request.url && request.method === "PUT") {
+
+          callback(request, response);
+          response.end();
+        }
+      });
     }
 
     listen(port) {
