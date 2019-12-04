@@ -1,4 +1,5 @@
 const http = require('http');
+const fs = require('fs');
 
 class Express {
 
@@ -18,14 +19,14 @@ class Express {
             const find = this.routage.find(element => {
                 return element.path === pathurl;
             });
-            
+
             if (request.url === pathurl && request.method === 'GET') {
                 callback(request, response);
                 response.end()
             }
 
         })
-    
+
     }
 
     post(path, callback) {
@@ -43,6 +44,13 @@ class Express {
 
     }
 
+    render(path, ...callbacks) {
+      const filename = `${path}.html.mustache`;
+      fs.access(`${filename}`, fs.constants.F_OK, (err) => {
+        console.log(`${filename}: ${err ? 'does not exist' : 'exists'}`);
+      });
+
+    }
 
 }
 function express() {

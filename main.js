@@ -13,3 +13,7 @@ app.get('/hello', function(req, res) {
     console.log('<h4>here in call /hello</h4>')
      res.write('<b>Hello again...</b>')
 });
+
+app.render('home', {name: 'Fona'}, (err, html) => {
+  console.log('hello world');
+});
