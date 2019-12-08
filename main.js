@@ -14,6 +14,6 @@ app.get('/hello', function(req, res) {
      res.write('<b>Hello again...</b>')
 });
 
-app.render('home', {name: 'Fona'}, (err, html) => {
-  console.log('hello world');
+app.render('home', {name: 'Fona', text: 'i will crash you with my hammer !', age: 23.05976}, (err, html) => {
+  // console.log(err, html);
 });
