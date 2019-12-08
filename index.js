@@ -4,11 +4,13 @@ app.listen(2222)
 
 
 
-app.post('/post', (req,res, next) =>{
+app.get('', (req,res) =>{
 
-	
+res.write('premier post' ,res);
 
-/*res.send('premier post' ,res)
-next();*/
+})
+
+app.post('/post', (req,res) =>{
+
 
 })
