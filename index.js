@@ -2,10 +2,7 @@ const express = require('./my-express')
 const app = express()
 app.listen(2222)
 
-
-
 app.get('', (req,res) =>{
-
 res.write('premier post' ,res);
 console.log('<h4>here in firt page </h4>')
 	res.write('<h1>firt page </h1>')
