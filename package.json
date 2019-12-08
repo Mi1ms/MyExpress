@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Project binome",
   "main": "main.js",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "nodemon": "^2.0.1"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "npx nodemon main.js",
     "test": ""
