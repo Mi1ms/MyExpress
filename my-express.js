@@ -42,6 +42,16 @@ class Express {
       });
     }
 
+    delete(path, callback) {
+      this.server.on('request', (request, response) => {
+        if (path == request.url && request.method === "DELETE") {
+
+          callback(request, response);
+          response.end();
+        }
+      });
+    }
+
     listen(port) {
 
         if (typeof port == 'number') {
